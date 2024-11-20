@@ -33,8 +33,6 @@ def search(request):
     #Filtra las imágenes según el término de búsqueda ingresado por el usuario. Si no se ingresa un término, devuelve todas las imágenes de la API.
     search_msg = request.POST.get('query', '')
 
-    # si el texto ingresado no es vacío, trae las imágenes y favoritos desde services.py,
-    # y luego renderiza el template (similar a home).
     if (search_msg != ''):
         images = services.getAllImages(search_msg)
         favourite_list = services.getAllFavourites(request)
@@ -46,19 +44,19 @@ def search(request):
 # Estas funciones se usan cuando el usuario está logueado en la aplicación.
 @login_required
 def getAllFavouritesByUser(request):
-    favourite_list = services.getAllFavourites(request.user)
+    favourite_list = services.getAllFavourites(request)
     return render(request, 'favourites.html', { 'favourite_list': favourite_list })
 
 @login_required
 def saveFavourite(request):
     if request.method == 'POST':
-        services.saveFavourite(request.user)  # Llama a la capa de servicio para guardar el favorito.
+        services.saveFavourite(request)  # Llama a la capa de servicio para guardar el favorito.
     return redirect('home')
 
 @login_required
 def deleteFavourite(request):
     if request.method == 'POST':
-        services.deleteFavourite(request.user)  # Llama a la capa de servicio para eliminar el favorito.
+        services.deleteFavourite(request)  # Llama a la capa de servicio para eliminar el favorito.
     return redirect('home')
 
 @login_required
