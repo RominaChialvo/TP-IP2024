@@ -1,7 +1,64 @@
 body {
     color: #566787;
-    background: #f5f5f5;
+    background: #122b36;
+    background-image: url("rick-sanchez.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed ;
     font-family: 'Roboto', sans-serif;
+}
+
+#banner {
+    background: rgb(205, 247, 248);
+    opacity: 65%;
+    text-shadow: 2px 0 #c1c8eb;
+}
+
+h1 {
+    color: rgb(205, 247, 248);
+    text-shadow: 2px 0 #000000;
+}
+
+h2 {
+    color: rgb(205, 247, 248);
+    text-shadow: 2px 0 #000000;
+}
+
+#mnsj-debajo {
+    font-weight: bold;
+    color: rgb(205, 247, 248);
+    text-shadow: 2px 0 #000000;
+}
+
+#mnsj-debajo a:link {
+    font-weight: bold;
+    text-shadow: 2px 0 #ffffff;
+}
+
+#mnsj-debajo a:hover {
+    text-shadow: 2px 0 #ffffff;
+    color: rgb(91, 54, 177);
+}
+
+#borde-container-favos {
+background-color: #1c1d2b;
+}
+
+#barra-footer {
+    clear: both;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    z-index: 0;
+}
+
+#bailongo {
+    float: right;
+    position: relative;
+    top: -40px;
+    left: -50px;
+    z-index: 1;
 }
 
 .table-responsive {
@@ -10,9 +67,10 @@ body {
 
 .table-wrapper {
     min-width: 1000px;
-    background: #fff;
+    background: #e4e2e2;
     padding: 20px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    margin: 20px;
 }
 
 .table-title {
@@ -22,13 +80,28 @@ body {
 }
 
 .table-title h2 {
+    color:#303a66;
     margin: 8px 0 0;
     font-size: 22px;
 }
 
 .search-box {
     position: relative;
-    float: right;
+    float: left;
+}
+
+.search-box button{
+    background-color: #330e8a;
+    color: #bbc8ce;
+    border: none; 
+    border-radius: 20px; 
+    height: 34px; 
+    padding: 0 15px; 
+
+}
+
+.search-box button:hover { 
+    background-color: #038b41
 }
 
 .search-box input {
@@ -36,7 +109,7 @@ body {
     border-radius: 20px;
     padding-left: 35px;
     border-color: #ddd;
-    box-shadow: none;
+    box-shadow: lightgray;
 }
 
 .search-box input:focus {
