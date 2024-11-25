@@ -87,7 +87,7 @@ background-color: #1c1d2b;
 
 .search-box {
     position: relative;
-    float: left;
+    float: right;
 }
 
 .search-box button{
