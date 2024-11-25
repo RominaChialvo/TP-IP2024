@@ -62,4 +62,4 @@ def deleteFavourite(request):
 @login_required
 def exit(request):
     logout(request)
-    return redirect('index_page')
+    return redirect('index-page')
