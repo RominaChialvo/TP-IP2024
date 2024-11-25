@@ -8,9 +8,10 @@ class Favourite(models.Model):
     status = models.TextField()
     last_location = models.TextField()
     first_seen = models.TextField()
+    message = models.TextField(default="")
 
     # Asociamos el favorito con el usuario en cuestión.
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     class Meta:
-        unique_together = (('user', 'url', 'name', 'status', 'last_location', 'first_seen'),)
+        unique_together = (('user', 'url', 'name', 'status', 'last_location', 'first_seen', 'message'))

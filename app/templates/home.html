@@ -60,6 +60,10 @@
                             </p>
                             <p class="card-text"><small class="text-body-secondary">Última ubicación: {{ img.last_location }}</small></p>
                             <p class="card-text"><small class="text-body-secondary">Episodio inicial: {{ img.first_seen }}</small></p>
+                            <p class="card-text">
+                                <strong>
+                                    Mensaje: {{ img.message }}
+                                    </strong>
                         </div>
                         {% if request.user.is_authenticated %}
                         <div class="card-footer text-center">
@@ -69,7 +73,9 @@
                                 <input type="hidden" name="url" value="{{ img.url }}">
                                 <input type="hidden" name="status" value="{{ img.status }}">
                                 <input type="hidden" name="last_location" value="{{ img.last_location }}">
-                                <input type="hidden" name="first_seen" value="{{ img.first_seen }}"> {% if img in favourite_list %}
+                                <input type="hidden" name="first_seen" value="{{ img.first_seen }}"> 
+                                <textarea name="message" placeholder="Escribe tu mensaje..."></textarea> 
+                                {% if img in favourite_list %}
                                 <button type="submit" class="btn btn-primary btn-sm float-left" style="color:white" disabled>✔️ Ya está en favoritos</button> {% else %}
                                 <button type="submit" class="btn btn-primary btn-sm float-left" style="color:white">❤️ Añadir a favoritos</button> {% endif %}
                             </form>
@@ -83,3 +89,20 @@
     </div>
 </main>
 {% endblock %}
+
+<!-- Paginador --> 
+ <div class="pagination"> 
+    <span class="step-links"> 
+        {% if page_obj.has_previous %} 
+        <a href="?query={{ search_msg }}&page=1">&laquo; primero</a> 
+        <a href="?query={{ search_msg }}&page={{ page_obj.previous_page_number }}">anterior</a> 
+        {% endif %} 
+        
+        <span class="current"> Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }} 
+        </span> 
+        
+        {% if page_obj.has_next %} 
+        <a href="?query={{ search_msg }}&page={{ page_obj.next_page_number }}">siguiente</a> 
+        <a href="?query={{ search_msg }}&page={{ page_obj.paginator.num_pages }}">último &raquo;</a> 
+        {% endif %} 
+    </span>

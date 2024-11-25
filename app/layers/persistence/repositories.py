@@ -5,14 +5,14 @@ from app.models import Favourite
 
 def saveFavourite(image):
     try:
-        fav = Favourite.objects.create(url=image.url, name=image.name, status=image.status, last_location=image.last_location, first_seen=image.first_seen, user=image.user)
+        fav = Favourite.objects.create(url=image.url, name=image.name, status=image.status, last_location=image.last_location, first_seen=image.first_seen, user=image.user, message=image.message)
         return fav
     except Exception as e:
         print(f"Error al guardar el favorito: {e}")
         return None
 
 def getAllFavourites(user):
-    favouriteList = Favourite.objects.filter(user=user).values('id', 'url', 'name', 'status', 'last_location', 'first_seen')
+    favouriteList = Favourite.objects.filter(user=user).values('id', 'url', 'name', 'status', 'last_location', 'first_seen', 'message')
     return list(favouriteList)
 
 def deleteFavourite(id):
