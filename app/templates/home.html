@@ -39,9 +39,9 @@
         {% else %} {% for img in images %}
         <div class="col">
             <div class="card mb-3 ms-5
-            {% if img.status == 'Alive' %} border border-success 
-            {% elif img.status == 'Dead' %} border border-danger 
-            {% else %} border border-warning {% endif %}"style="max-width: 540px;">
+            {% if img.status == 'Alive' %} border border-3 border-success 
+            {% elif img.status == 'Dead' %} border border-3 border-danger 
+            {% else %} border border-3 border-warning {% endif %}"style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-4">
                         <img src="{{ img.url }}" class="card-img-top" alt="imagen">
