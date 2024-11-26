@@ -23,6 +23,7 @@
         </nav>
     </div>
 
+
     <div class="d-flex justify-content-center" style="margin-bottom: 1%">
         <!-- Buscador del sitio -->
         <form class="d-flex" action="{% url 'buscar' %}" method="POST">
@@ -89,20 +90,3 @@
     </div>
 </main>
 {% endblock %}
-
-<!-- Paginador --> 
- <div class="pagination"> 
-    <span class="step-links"> 
-        {% if page_obj.has_previous %} 
-        <a href="?query={{ search_msg }}&page=1">&laquo; primero</a> 
-        <a href="?query={{ search_msg }}&page={{ page_obj.previous_page_number }}">anterior</a> 
-        {% endif %} 
-        
-        <span class="current"> Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }} 
-        </span> 
-        
-        {% if page_obj.has_next %} 
-        <a href="?query={{ search_msg }}&page={{ page_obj.next_page_number }}">siguiente</a> 
-        <a href="?query={{ search_msg }}&page={{ page_obj.paginator.num_pages }}">último &raquo;</a> 
-        {% endif %} 
-    </span>
